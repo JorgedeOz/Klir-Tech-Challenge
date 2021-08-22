@@ -1,14 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using KlirTechChallenge.Web.Api.Models;
+using KlirTechChallenge.Web.Api.Interfaces;
+using KlirTechChallenge.Web.Api.Managers;
 
 namespace KlirTechChallenge.Web.Api
 {
@@ -31,11 +28,18 @@ namespace KlirTechChallenge.Web.Api
                 options.AddPolicy(name: AllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:4200");
+                                      builder
+                                        .WithOrigins("http://localhost:4200")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
                                   });
             });
 
             services.AddControllers();
+
+            services.AddSingleton<IProductManager,ProductsManager>();
+            services.AddSingleton<IPromotionsManager,PromotionsManager>();
+            services.AddSingleton<IShoppingCartManager,ShoppingCartManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

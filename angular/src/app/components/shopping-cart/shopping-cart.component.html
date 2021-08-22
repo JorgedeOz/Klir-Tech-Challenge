@@ -1,0 +1,39 @@
+<h1>Shopping Cart</h1>
+<button type="button" class="btn btn-primary" (click)="toggleProducts();">{{ showHideProducts }}</button>
+<div *ngIf="showProducts">
+  <app-products (onAddProduct)="addToShoppingCart($event);"></app-products>
+</div>
+<div class="container">
+  <p>You have {{ shoppingCart.items.length }} items in your shopping cart</p>
+  <table class='table table-striped' aria-labelledby="tableLabel">
+      <thead>     
+        <td>Item</td>    
+        <td>Quantity</td>    
+        <td>Price</td>    
+        <td>Total</td>
+        <td>Promotion Applied</td>
+        <td>Action</td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of shoppingCart.items;">
+            <td>{{ getProduct(item.productId).name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>€ {{ getProduct(item.productId).price }}</td>
+            <td>€ {{ item.total }}</td>
+            <td>
+              <span *ngIf="item.promotion.promotionType != 0">
+                ({{ item.promotion.timesApplied }}) {{ item.promotion.promotionName }}
+              </span>            
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="removeItem(item.productId);">Remove</button>
+            </td>
+        </tr>
+        <tr>
+          <td colspan="3">Total</td>
+          <td>€ {{shoppingCart.total}}</td>
+          <td colspan="2"></td>
+        </tr>
+      </tbody>
+  </table>
+</div>

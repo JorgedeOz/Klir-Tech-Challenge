@@ -1,0 +1,19 @@
+<div class="container">
+    <p>Add products to the shopping cart</p>
+    <table class='table table-striped' aria-labelledby="tableLabel">
+        <thead>     
+        <td>Product</td>    
+        <td>Price</td>    
+        <td>Actions</td>    
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of products">
+            <td>{{ item.name }}</td>
+            <td>€ {{ item.price }}</td>
+            <td>
+            <button type="button" class="btn btn-success" (click)="addItem(item);">Add Product</button>           
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

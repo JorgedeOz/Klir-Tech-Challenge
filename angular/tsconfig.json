@@ -1,6 +1,6 @@
 {
   "compileOnSave": false,
-  "compilerOptions": {
+  "compilerOptions": {    
     "baseUrl": "./",
     "module": "esnext",
     "outDir": "./dist/out-tsc",
@@ -16,6 +16,9 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ]    
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true
   }
 }
