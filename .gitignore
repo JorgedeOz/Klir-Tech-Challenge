@@ -8,6 +8,7 @@ aspnet-core/Klir.TechChallenge.Web.Api/obj/
 aspnet-core/Klir.TechChallenge.Web.Api/debug/
 .vs/
 .vscode/
+img/
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
@@ -49,4 +50,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
