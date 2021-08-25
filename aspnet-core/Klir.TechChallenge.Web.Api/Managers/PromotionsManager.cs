@@ -3,7 +3,6 @@ using KlirTechChallenge.Web.Api.Interfaces;
 using KlirTechChallenge.Web.Api.Managers.Promotions;
 using KlirTechChallenge.Web.Api.Models;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace KlirTechChallenge.Web.Api.Managers
 {

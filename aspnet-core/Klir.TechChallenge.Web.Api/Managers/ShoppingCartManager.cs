@@ -23,10 +23,7 @@ namespace KlirTechChallenge.Web.Api.Managers
 
         public ShoppingCartModel GetShoppingCart()
         {
-            _shoppingCartModel.Total = 0;
-            foreach(var item in _shoppingCartModel.Items){                
-                _shoppingCartModel.Total += item.Total;
-            }
+            _shoppingCartModel.Total = _shoppingCartModel.Items.Sum(a => a.Total);
             return _shoppingCartModel;
         }
 

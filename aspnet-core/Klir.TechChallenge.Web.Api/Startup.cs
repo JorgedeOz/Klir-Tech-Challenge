@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using KlirTechChallenge.Web.Api.Models;
 using KlirTechChallenge.Web.Api.Interfaces;
 using KlirTechChallenge.Web.Api.Managers;
 
